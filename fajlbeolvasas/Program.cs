@@ -14,6 +14,8 @@
             }
 
 			legnagyobbEletero(karakterek);
+
+			atlagSzint(karakterek);
 		}
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek)
@@ -44,6 +46,20 @@
 				}
 			}
             Console.WriteLine($"A legtöbb életerővel rendelkező karakter: {max.Nev} szintje: {max.Szint} erőssége: {max.Ero}");
+        }
+
+		static void atlagSzint(List<Karakter> karakterek)
+		{
+
+			int ossz = 0;
+
+			foreach(var item in karakterek)
+			{
+				ossz += item.Szint;
+				
+			}
+			double atlag = ossz / karakterek.Count;
+			Console.WriteLine($"A karakterek szintjének atlaga: {atlag}");
         }
 	}
 }
