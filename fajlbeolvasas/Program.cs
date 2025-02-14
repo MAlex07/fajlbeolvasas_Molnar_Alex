@@ -16,6 +16,9 @@
 			legnagyobbEletero(karakterek);
 
 			atlagSzint(karakterek);
+            Console.WriteLine("---------------------------------------");
+
+            rendezes(karakterek);
 		}
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek)
@@ -60,6 +63,26 @@
 			}
 			double atlag = ossz / karakterek.Count;
 			Console.WriteLine($"A karakterek szintjének atlaga: {atlag}");
+        }
+
+		static void rendezes(List<Karakter> karakterek)
+		{
+			for (int i = 0; i < karakterek.Count; i++)
+			{
+				for(int j = 0; j < karakterek.Count; j++)
+				{
+					if (karakterek[i].Ero < karakterek[j].Ero)
+					{
+						Karakter csere = karakterek[i];
+						karakterek [i] = karakterek[j];
+						karakterek[j] = csere;
+					}
+				}
+			}
+            foreach(var item in karakterek)
+			{
+                Console.WriteLine(item);
+            }
         }
 	}
 }
